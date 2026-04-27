@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Services — GrowthLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg:     #060d1b;
+      --bg2:    #0c1628;
+      --bg3:    #111f38;
+      --bg4:    #162240;
+      --border: rgba(255,255,255,0.08);
+      --text:   #e2e8f0;
+      --muted:  #7a90ae;
+      --blue:   #3b82f6;
+      --blue-d: #2563eb;
+      --violet: #8b5cf6;
+      --green:  #10b981;
+      --cyan:   #06b6d4;
+      --r:      14px;
+      --max:    1160px;
+    }
+
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+    .section    { padding: 96px 0; }
+    .alt        { background: var(--bg2); }
+    .center     { text-align: center; }
+    h1,h2,h3,h4 { font-family: 'Sora', sans-serif; line-height: 1.15; color: #f1f5f9; }
+    .eye { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
+    .h1 { font-size: clamp(34px, 5vw, 60px); font-weight: 800; }
+    .h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 800; }
+    .sub { font-size: 17px; color: var(--muted); max-width: 580px; margin-top: 16px; }
+    .c-sub { margin-left: auto; margin-right: auto; }
+    .b { color: var(--blue); } .v { color: var(--violet); } .g { color: var(--green); } .c { color: var(--cyan); }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; border: 2px solid transparent; transition: transform .15s, opacity .15s; }
+    .btn:hover { transform: translateY(-2px); opacity: .88; }
+    .btn-b  { background: var(--blue);   color: #fff; border-color: var(--blue); }
+    .btn-g  { background: var(--green);  color: #fff; border-color: var(--green); }
+    .btn-c  { background: var(--cyan);   color: #060d1b; border-color: var(--cyan); }
+    .btn-v  { background: var(--violet); color: #fff; border-color: var(--violet); }
+    .btn-ol { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-ol:hover { border-color: var(--green); color: var(--green); }
+    .btn-ow { background: transparent; color: #fff; border-color: rgba(255,255,255,.25); }
+    .btn-ow:hover { border-color: rgba(255,255,255,.6); }
+    .btn-sm { padding: 10px 18px; font-size: 13px; }
+    .lg { padding: 17px 36px; font-size: 16px; }
+
+    /* Tags */
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+    .t-b { background: rgba(59,130,246,.15); color: var(--blue);  border: 1px solid rgba(59,130,246,.3); }
+    .t-g { background: rgba(16,185,129,.12); color: var(--green); border: 1px solid rgba(16,185,129,.3); }
+    .t-v { background: rgba(139,92,246,.12); color: var(--violet);border: 1px solid rgba(139,92,246,.3); }
+    .t-c { background: rgba(6,182,212,.12);  color: var(--cyan);  border: 1px solid rgba(6,182,212,.3); }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(6,13,27,.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: #f1f5f9; }
+    .logo span { color: var(--blue); }
+    .nav-ul { display: flex; gap: 28px; list-style: none; }
+    .nav-ul a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color .2s; }
+    .nav-ul a:hover, .nav-ul a.active { color: #f1f5f9; }
+    .nav-cta { display: flex; gap: 10px; }
+
+    /* ── HERO ── */
+    .hero { padding: 100px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; top: -140px; right: -100px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -60px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-in { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.25);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 24px;
+    }
+    .bdot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .hero h1 { margin-bottom: 20px; }
+    .hero .sub { font-size: 18px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 36px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .hs-num { font-family: 'Sora', sans-serif; font-size: 30px; font-weight: 800; color: var(--green); }
+    .hs-lbl { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* Hero Visual — Analytics Dashboard */
+    .hero-vis { position: relative; display: flex; align-items: center; justify-content: center; }
+    .dash {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 18px; padding: 20px; width: 100%; max-width: 440px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.5);
+    }
+    .dash-bar { display: flex; gap: 6px; margin-bottom: 14px; align-items: center; }
+    .ddot { width: 10px; height: 10px; border-radius: 50%; }
+    .ddot:nth-child(1){background:#f87171;} .ddot:nth-child(2){background:#fbbf24;} .ddot:nth-child(3){background:#4ade80;}
+    .dash-title { font-family:'Sora',sans-serif; font-size:12px; font-weight:700; color:var(--muted); margin-left:8px; text-transform:uppercase; letter-spacing:.06em; }
+    .kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
+    .kpi {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 10px; text-align: center;
+    }
+    .kpi-n { font-family:'Sora',sans-serif; font-size:18px; font-weight:800; }
+    .kpi-l { font-size:10px; color:var(--muted); margin-top:2px; }
+    .chart-area {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px; margin-bottom: 12px;
+    }
+    .chart-lbl { font-size:11px; color:var(--muted); margin-bottom:10px; font-weight:600; }
+    .bar-chart { display: flex; align-items: flex-end; gap: 5px; height: 56px; }
+    .bc { flex: 1; border-radius: 3px 3px 0 0; }
+    .bc-g { background: linear-gradient(180deg, var(--green), #059669); }
+    .bc-b { background: linear-gradient(180deg, var(--blue), var(--blue-d)); }
+    .bc-c { background: linear-gradient(180deg, var(--cyan), #0891b2); }
+    .metric-list { display: flex; flex-direction: column; gap: 8px; }
+    .ml-row { display: flex; align-items: center; gap: 8px; }
+    .ml-lbl { font-size: 11px; color: var(--muted); width: 90px; flex-shrink: 0; }
+    .ml-track { flex: 1; height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; }
+    .ml-fill { height: 100%; border-radius: 3px; }
+    .ml-val { font-size: 11px; font-weight: 700; width: 36px; text-align: right; flex-shrink: 0; }
+    /* Float cards */
+    .fc { position: absolute; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; box-shadow: 0 8px 24px rgba(0,0,0,.4); font-size: 12px; white-space: nowrap; }
+    .fc.tl{top:-16px;left:-24px;} .fc.br{bottom:-16px;right:-24px;}
+    .fv{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;margin-bottom:2px;}
+    .fl{color:var(--muted);font-size:11px;}
+
+    /* ── PROBLEMS ── */
+    .prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+    .prob-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 24px; transition: border-color .2s;
+    }
+    .prob-card:hover { border-color: rgba(248,113,113,.3); }
+    .prob-ic {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .prob-card h4 { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+    .prob-card p  { font-size: 13px; color: var(--muted); }
+
+    /* ── POSITIONING ── */
+    .pos-sec { background: var(--bg2); padding: 96px 0; }
+    .pos-in  { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .funnel { display: flex; flex-direction: column; gap: 0; }
+    .funnel-step {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; border-radius: 10px;
+      margin-bottom: 6px;
+      background: var(--bg3); border: 1px solid var(--border);
+      position: relative;
+    }
+    .funnel-step::after {
+      content: '↓'; position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+      color: var(--muted); font-size: 12px; z-index: 1;
+    }
+    .funnel-step:last-child::after { display: none; }
+    .f-em { font-size: 20px; flex-shrink: 0; }
+    .f-label { font-size: 13px; font-weight: 700; color: #f1f5f9; }
+    .f-desc  { font-size: 12px; color: var(--muted); }
+    .funnel-step.f1 { border-color: rgba(59,130,246,.3); background: rgba(59,130,246,.06); }
+    .funnel-step.f2 { border-color: rgba(6,182,212,.3);  background: rgba(6,182,212,.05); }
+    .funnel-step.f3 { border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
+    .funnel-step.f4 { border-color: rgba(139,92,246,.3); background: rgba(139,92,246,.05); }
+    .funnel-step.f5 { border-color: rgba(16,185,129,.3); background: rgba(16,185,129,.05); }
+
+    /* ── SERVICES ── */
+    .srv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .srv-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 28px;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .srv-card:hover { transform: translateY(-4px); border-color: rgba(16,185,129,.3); }
+    .srv-em { font-size: 28px; margin-bottom: 14px; }
+    .srv-card h3 { font-size: 17px; font-weight: 700; color: #f1f5f9; margin-bottom: 10px; }
+    .srv-card > p { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+    .srv-ul { list-style: none; margin-bottom: 24px; flex: 1; }
+    .srv-ul li {
+      font-size: 13px; color: var(--text); padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .srv-ul li::before { content: '→'; font-size: 11px; color: var(--green); font-weight: 700; }
+    .srv-ul li:last-child { border-bottom: none; }
+
+    /* ── WHO IS IT FOR ── */
+    .who-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+    .who-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 24px 22px;
+      transition: border-color .2s, transform .2s;
+    }
+    .who-card:hover { border-color: rgba(16,185,129,.3); transform: translateY(-2px); }
+    .who-em { font-size: 24px; margin-bottom: 12px; }
+    .who-card h4 { font-size: 15px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+    .who-card p  { font-size: 13px; color: var(--muted); }
+
+    /* ── APPROACH ── */
+    .appr-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .appr-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 32px; position: relative; overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+    .appr-card:hover { transform: translateY(-4px); }
+    .appr-card:nth-child(1):hover { border-color: rgba(59,130,246,.4); }
+    .appr-card:nth-child(2):hover { border-color: rgba(16,185,129,.4); }
+    .appr-card:nth-child(3):hover { border-color: rgba(6,182,212,.4); }
+    .appr-bg { font-family:'Sora',sans-serif; font-size:72px; font-weight:800; color:rgba(255,255,255,.03); position:absolute; top:-14px; right:10px; line-height:1; user-select:none; }
+    .appr-ic { font-size: 28px; margin-bottom: 16px; }
+    .appr-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .appr-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ── PROCESS ── */
+    .proc-steps { display: grid; grid-template-columns: repeat(8,1fr); gap: 0; margin-top: 56px; position: relative; }
+    .proc-steps::before {
+      content: ''; position: absolute; top: 28px; left: 6.25%; right: 6.25%;
+      height: 2px; background: linear-gradient(90deg, var(--blue), var(--green), var(--cyan));
+    }
+    .ps { text-align: center; padding: 0 6px; position: relative; z-index: 1; }
+    .pc {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 800;
+      color: #fff; margin: 0 auto 14px;
+    }
+    .pc1{background:var(--blue);}    .pc2{background:#1d6bea;}
+    .pc3{background:#1580d4;}        .pc4{background:var(--cyan);}
+    .pc5{background:#09b4a0;}        .pc6{background:var(--green);}
+    .pc7{background:#0d9c6b;}       .pc8{background:#059669;}
+    .ps h4 { font-size: 12px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px; }
+    .ps p  { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+    /* ── WHAT YOU GET ── */
+    .check-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 48px; }
+    .check-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .chk-ic {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0; color: var(--green);
+    }
+    .check-item span { font-size: 14px; color: var(--text); }
+
+    /* ── TRACKING / KPI CARDS ── */
+    .track-in { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .kpi-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 22px;
+      transition: border-color .2s;
+    }
+    .kpi-card:hover { border-color: rgba(16,185,129,.3); }
+    .kpi-card-ic { font-size: 22px; margin-bottom: 10px; }
+    .kpi-card h4 { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 5px; }
+    .kpi-card p  { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    /* ── CASE STUDIES ── */
+    .cs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .cs-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .cs-card:hover { transform: translateY(-4px); }
+    .cs-thumb { height: 148px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .th1 { background: linear-gradient(135deg, rgba(16,185,129,.2), rgba(5,150,105,.12)); }
+    .th2 { background: linear-gradient(135deg, rgba(59,130,246,.2), rgba(37,99,235,.12)); }
+    .th3 { background: linear-gradient(135deg, rgba(139,92,246,.2), rgba(109,40,217,.12)); }
+    .cs-body { padding: 24px; }
+    .cs-body h3 { font-size: 15px; margin: 10px 0 8px; }
+    .cs-prob { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .cs-prob strong { color: #94a3b8; }
+    .cs-res { padding: 10px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; margin: 12px 0 14px; }
+    .r1 { background: rgba(16,185,129,.1);  color: var(--green);  border: 1px solid rgba(16,185,129,.2); }
+    .r2 { background: rgba(59,130,246,.1);  color: var(--blue);   border: 1px solid rgba(59,130,246,.2); }
+    .r3 { background: rgba(139,92,246,.1);  color: var(--violet); border: 1px solid rgba(139,92,246,.2); }
+    .cs-lnk { font-size: 13px; font-weight: 600; color: var(--green); }
+    .cs-lnk:hover { text-decoration: underline; }
+
+    /* ── WHY US ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+    .why-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 26px;
+      transition: border-color .2s, transform .2s;
+    }
+    .why-card:hover { border-color: rgba(16,185,129,.35); transform: translateY(-2px); }
+    .why-ic {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .why-card h4 { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 5px; }
+    .why-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── BRIDGE ── */
+    .bridge-sec { background: var(--bg2); padding: 96px 0; }
+    .bridge-in  { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .bridge-vis { display: flex; flex-direction: column; gap: 16px; }
+    .bv-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 26px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .bv-card.active { border-color: rgba(16,185,129,.4); background: rgba(16,185,129,.06); }
+    .bv-ic { font-size: 26px; flex-shrink: 0; }
+    .bv-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .bv-card p  { font-size: 13px; color: var(--muted); }
+    .bridge-conn { text-align: center; font-size: 12px; font-weight: 700; color: var(--blue); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 760px; margin: 48px auto 0; }
+    .faq-item { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r); margin-bottom: 10px; overflow: hidden; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; cursor: pointer; font-size: 15px; font-weight: 600; color: #f1f5f9; list-style: none; transition: background .15s; }
+    .faq-q:hover { background: var(--bg4); }
+    .faq-q::after { content: '+'; font-size: 20px; font-weight: 400; color: var(--green); flex-shrink: 0; margin-left: 12px; }
+    details[open] .faq-q::after { content: '−'; }
+    .faq-a { padding: 0 24px 20px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-sec { padding: 100px 0; text-align: center; position: relative; overflow: hidden; background: var(--bg2); border-top: 1px solid var(--border); }
+    .cta-sec::before {
+      content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-sec h2, .cta-sec .sub { position: relative; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px; position: relative; }
+    .cta-note { font-size: 13px; color: var(--muted); margin-top: 20px; position: relative; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+    .ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .ft-brand p { font-size: 14px; color: var(--muted); margin-top: 12px; max-width: 260px; line-height: 1.65; }
+    .ft-brand .btn { margin-top: 20px; }
+    .ft-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #f1f5f9; margin-bottom: 16px; }
+    .ft-col ul { list-style: none; }
+    .ft-col li { margin-bottom: 10px; }
+    .ft-col a { font-size: 14px; color: var(--muted); transition: color .2s; }
+    .ft-col a:hover { color: var(--green); }
+    .ft-bot { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .ft-bot p { font-size: 13px; color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1080px) {
+      .proc-steps { grid-template-columns: repeat(4,1fr); }
+      .proc-steps::before { display: none; }
+    }
+    @media (max-width: 960px) {
+      .nav-ul { display: none; }
+      .hero-in, .pos-in, .bridge-in, .track-in { grid-template-columns: 1fr; }
+      .hero-vis { display: none; }
+      .srv-grid, .appr-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+      .who-grid, .cs-grid, .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .check-grid { grid-template-columns: 1fr 1fr; }
+      .ft-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .prob-grid, .srv-grid, .appr-grid, .why-grid,
+      .who-grid, .cs-grid, .kpi-grid, .check-grid,
+      .proc-steps, .ft-grid { grid-template-columns: 1fr; }
+      .nav-cta .btn-ol { display: none; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-in">
+    <a href="/" class="logo">Trivon<span>Studios</span></a>
+    <ul class="nav-ul">
+      <li><a href="/">Home</a></li>
+      <li><a href="/development">Development</a></li>
+      <li><a href="/marketing" class="active">Marketing</a></li>
+      <li><a href="/case-studies">Case Studies</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/" class="btn btn-ol">Back to Home</a>
+      <a href="#cta" class="btn btn-g">Get a Free Audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-in">
+      <div>
+        <div class="hero-badge"><span class="bdot"></span> Marketing Services</div>
+        <h1 class="h1">Marketing Systems That Bring <span class="g">Traffic, Leads,</span> and Sales</h1>
+        <p class="sub">We help businesses grow online with SEO, Google Ads, social media, content, conversion strategy, and performance tracking — built around one goal: turning attention into real business results.</p>
+        <div class="hero-btns">
+          <a href="#cta" class="btn btn-g lg">Get a Free Marketing Audit</a>
+          <a href="#case-studies" class="btn btn-ow lg">View Marketing Results</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hs-num">2×</div><div class="hs-lbl">More Qualified Leads for Selected Campaigns</div></div>
+          <div><div class="hs-num">30%+</div><div class="hs-lbl">Conversion Improvement Opportunities Found</div></div>
+          <div><div class="hs-num">100%</div><div class="hs-lbl">Strategy-Led Marketing</div></div>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <div class="fc tl">
+          <div class="fv g">+127%</div>
+          <div class="fl">Organic Traffic Growth</div>
+        </div>
+        <div class="dash">
+          <div class="dash-bar">
+            <span class="ddot"></span><span class="ddot"></span><span class="ddot"></span>
+            <span class="dash-title">Marketing Dashboard</span>
+          </div>
+          <div class="kpi-row">
+            <div class="kpi"><div class="kpi-n g">2.4k</div><div class="kpi-l">Monthly Leads</div></div>
+            <div class="kpi"><div class="kpi-n b">38%</div><div class="kpi-l">Conv. Rate</div></div>
+            <div class="kpi"><div class="kpi-n c">4.2×</div><div class="kpi-l">ROAS</div></div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-lbl">Traffic Growth — Last 6 Months</div>
+            <div class="bar-chart">
+              <div class="bc bc-g" style="height:30%"></div>
+              <div class="bc bc-g" style="height:42%"></div>
+              <div class="bc bc-b" style="height:38%"></div>
+              <div class="bc bc-b" style="height:60%"></div>
+              <div class="bc bc-c" style="height:72%"></div>
+              <div class="bc bc-c" style="height:90%"></div>
+            </div>
+          </div>
+          <div class="metric-list">
+            <div class="ml-row">
+              <span class="ml-lbl">SEO Traffic</span>
+              <div class="ml-track"><div class="ml-fill" style="width:78%;background:var(--green)"></div></div>
+              <span class="ml-val g">78%</span>
+            </div>
+            <div class="ml-row">
+              <span class="ml-lbl">Google Ads</span>
+              <div class="ml-track"><div class="ml-fill" style="width:65%;background:var(--blue)"></div></div>
+              <span class="ml-val b">65%</span>
+            </div>
+            <div class="ml-row">
+              <span class="ml-lbl">Social Media</span>
+              <div class="ml-track"><div class="ml-fill" style="width:52%;background:var(--cyan)"></div></div>
+              <span class="ml-val c">52%</span>
+            </div>
+          </div>
+        </div>
+        <div class="fc br">
+          <div class="fv b">−34%</div>
+          <div class="fl">Cost Per Lead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section alt">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Sound Familiar?</span>
+      <h2 class="h2">Random Marketing Does Not Grow a Business</h2>
+      <p class="sub c-sub">Many businesses are posting, running ads, or trying SEO — but without a clear system, they waste time and money.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="prob-ic">👁️</div>
+        <div>
+          <h4>You are getting traffic, but not leads</h4>
+          <p>Visitors come to your website, but they leave without taking action.</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-ic">💸</div>
+        <div>
+          <h4>Your ads are spending money, but not producing sales</h4>
+          <p>Clicks are not enough. Your campaigns need the right targeting, message, offer, and landing page.</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-ic">📱</div>
+        <div>
+          <h4>Your social media has activity, but no strategy</h4>
+          <p>Posting without a clear goal rarely creates consistent business growth.</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-ic">📊</div>
+        <div>
+          <h4>Your marketing is hard to measure</h4>
+          <p>If tracking is not set up properly, you cannot know what is working and what is wasting budget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING -->
+<section class="pos-sec">
+  <div class="container">
+    <div class="pos-in">
+      <div class="funnel">
+        <div class="funnel-step f1">
+          <div class="f-em">🎯</div>
+          <div><div class="f-label b">Audience</div><div class="f-desc">Who you want to reach and why they should care</div></div>
+        </div>
+        <div class="funnel-step f2">
+          <div class="f-em">📡</div>
+          <div><div class="f-label c">Traffic</div><div class="f-desc">SEO, ads, social, and content bringing the right people</div></div>
+        </div>
+        <div class="funnel-step f3">
+          <div class="f-em">🌐</div>
+          <div><div class="f-label g">Landing Page</div><div class="f-desc">A clear message and CTA that guides action</div></div>
+        </div>
+        <div class="funnel-step f4">
+          <div class="f-em">📩</div>
+          <div><div class="f-label v">Lead</div><div class="f-desc">A qualified inquiry, booking, or form submission</div></div>
+        </div>
+        <div class="funnel-step f5">
+          <div class="f-em">📈</div>
+          <div><div class="f-label g">Report &amp; Scale</div><div class="f-desc">Track results and grow what works</div></div>
+        </div>
+      </div>
+      <div>
+        <span class="eye">Our Approach</span>
+        <h2 class="h2">We Do Not Just Run Campaigns.<br>We Build <span class="g">Growth Systems.</span></h2>
+        <p class="sub" style="max-width:100%">Marketing should not feel like guessing. Before we run ads, create content, or improve SEO, we look at the full customer journey: who you want to reach, what they need to hear, where they land, and what action they should take next.</p>
+        <p style="color:var(--muted);margin-top:16px;font-size:15px;line-height:1.7">That is how we build marketing systems that attract the right people, guide them through the right message, and convert them into leads or customers.</p>
+        <a href="#cta" class="btn btn-g" style="margin-top:28px">Request a Marketing Strategy Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="center">
+      <span class="eye">What We Do</span>
+      <h2 class="h2">Marketing Services Designed Around Business Growth</h2>
+      <p class="sub c-sub">We combine strategy, traffic, content, conversion, and analytics to help your business grow with more clarity and less wasted effort.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-em">🔍</div>
+        <h3>SEO Services</h3>
+        <p>Improve your visibility on Google and attract people who are already searching for what you offer.</p>
+        <ul class="srv-ul">
+          <li>Keyword research</li>
+          <li>Technical SEO</li>
+          <li>On-page SEO</li>
+          <li>Local SEO</li>
+          <li>Content planning</li>
+          <li>SEO audits</li>
+          <li>Monthly reporting</li>
+        </ul>
+        <a href="#cta" class="btn btn-g btn-sm">Explore SEO Services</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-em">📣</div>
+        <h3>Google Ads</h3>
+        <p>Reach high-intent customers who are actively looking for your products or services.</p>
+        <ul class="srv-ul">
+          <li>Search ads</li>
+          <li>Display ads</li>
+          <li>Remarketing</li>
+          <li>Conversion tracking</li>
+          <li>Landing page recommendations</li>
+          <li>Campaign optimization</li>
+          <li>Monthly performance reports</li>
+        </ul>
+        <a href="#cta" class="btn btn-g btn-sm">Explore Google Ads</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-em">📲</div>
+        <h3>Social Media Marketing</h3>
+        <p>Build trust, awareness, and engagement with content that supports your business goals.</p>
+        <ul class="srv-ul">
+          <li>Social media strategy</li>
+          <li>Content planning</li>
+          <li>Post design direction</li>
+          <li>Campaign ideas</li>
+          <li>Audience targeting</li>
+          <li>Brand messaging</li>
+          <li>Performance review</li>
+        </ul>
+        <a href="#cta" class="btn btn-g btn-sm">Explore Social Media Marketing</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-em">✍️</div>
+        <h3>Content Marketing</h3>
+        <p>Create useful content that educates your audience, improves search visibility, and supports conversion.</p>
+        <ul class="srv-ul">
+          <li>Blog strategy</li>
+          <li>Website content</li>
+          <li>Landing page copy</li>
+          <li>Lead magnets</li>
+          <li>Email content</li>
+          <li>SEO content planning</li>
+          <li>Content calendars</li>
+        </ul>
+        <a href="#cta" class="btn btn-g btn-sm">Explore Content Marketing</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-em">⚡</div>
+        <h3>Conversion Optimization</h3>
+        <p>Improve your website, landing pages, forms, CTAs, and customer journey so more visitors become leads.</p>
+        <ul class="srv-ul">
+          <li>Landing page review</li>
+          <li>CTA improvement</li>
+          <li>Form optimization</li>
+          <li>Offer positioning</li>
+          <li>User journey analysis</li>
+          <li>A/B testing ideas</li>
+          <li>Conversion reporting</li>
+        </ul>
+        <a href="#cta" class="btn btn-g btn-sm">Improve My Conversions</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-em">🗺️</div>
+        <h3>Marketing Strategy</h3>
+        <p>Get a clear plan before spending money on ads, SEO, content, or campaigns.</p>
+        <ul class="srv-ul">
+          <li>Marketing audit</li>
+          <li>Competitor research</li>
+          <li>Funnel planning</li>
+          <li>Channel strategy</li>
+          <li>Offer strategy</li>
+          <li>Budget guidance</li>
+          <li>Growth roadmap</li>
+        </ul>
+        <a href="#cta" class="btn btn-g btn-sm">Build My Marketing Strategy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS IT FOR -->
+<section class="section alt">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Who This Is For</span>
+      <h2 class="h2">Perfect for Businesses That Want More Predictable Growth</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-em">🏢</div>
+        <h4>Service Businesses</h4>
+        <p>Generate better inquiries from people who need your services.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-em">📍</div>
+        <h4>Local Businesses</h4>
+        <p>Improve visibility, trust, and lead generation in your area.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-em">🛒</div>
+        <h4>E-commerce Brands</h4>
+        <p>Bring more qualified traffic and improve the path from product view to purchase.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-em">🚀</div>
+        <h4>Startups</h4>
+        <p>Build awareness, test offers, and create a clear go-to-market direction.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-em">🌐</div>
+        <h4>Companies With Existing Websites</h4>
+        <p>Turn your current website into a stronger lead generation tool.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-em">💸</div>
+        <h4>Businesses Wasting Ad Budget</h4>
+        <p>Find what is not working and improve campaigns before spending more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Our Philosophy</span>
+      <h2 class="h2">Our Marketing Approach Is Strategy First</h2>
+    </div>
+    <div class="appr-grid">
+      <div class="appr-card">
+        <div class="appr-bg">A</div>
+        <div class="appr-ic">🎯</div>
+        <h3 class="b">Attract the Right Audience</h3>
+        <p>We focus on the people most likely to need, trust, and buy from your business.</p>
+      </div>
+      <div class="appr-card">
+        <div class="appr-bg">C</div>
+        <div class="appr-ic">💬</div>
+        <h3 class="g">Convert With the Right Message</h3>
+        <p>We improve your offer, landing pages, CTAs, and content so visitors know why they should choose you.</p>
+      </div>
+      <div class="appr-card">
+        <div class="appr-bg">S</div>
+        <div class="appr-ic">📈</div>
+        <h3 class="c">Scale What Works</h3>
+        <p>We track performance, remove waste, and increase focus on the campaigns and channels that produce results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section alt">
+  <div class="container center">
+    <span class="eye">How We Work</span>
+    <h2 class="h2">A Clear Marketing Process From Audit to Growth</h2>
+    <p class="sub c-sub">Eight clear steps that take your marketing from uncertain to measurable — with a plan behind every action.</p>
+    <div style="margin-top:56px;position:relative;">
+      <div class="proc-steps">
+        <div class="ps"><div class="pc pc1">1</div><h4>Audit</h4><p>We review your website, current marketing, competitors, tracking, and customer journey.</p></div>
+        <div class="ps"><div class="pc pc2">2</div><h4>Research</h4><p>We study your audience, keywords, competitors, offers, and market position.</p></div>
+        <div class="ps"><div class="pc pc3">3</div><h4>Strategy</h4><p>We create a clear marketing plan based on your goals, budget, and best growth opportunities.</p></div>
+        <div class="ps"><div class="pc pc4">4</div><h4>Setup</h4><p>We prepare campaigns, content, tracking, landing page recommendations, and reporting systems.</p></div>
+        <div class="ps"><div class="pc pc5">5</div><h4>Launch</h4><p>We launch campaigns with clear goals, clean tracking, and a plan for optimization.</p></div>
+        <div class="ps"><div class="pc pc6">6</div><h4>Optimize</h4><p>We improve targeting, messaging, landing pages, keywords, creatives, and budget allocation.</p></div>
+        <div class="ps"><div class="pc pc7" style="background:var(--green)">7</div><h4>Report</h4><p>We show what happened, what it means, and what we recommend doing next.</p></div>
+        <div class="ps"><div class="pc pc8" style="background:#059669">8</div><h4>Scale</h4><p>Once we find what works, we help you increase reach, leads, sales, and long-term growth.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Deliverables</span>
+      <h2 class="h2">What Is Included in a Marketing Project</h2>
+    </div>
+    <div class="check-grid">
+      <div class="check-item"><div class="chk-ic">✓</div><span>Marketing audit</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Competitor research</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Audience research</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Keyword research</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Campaign strategy</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>SEO recommendations</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Paid ads setup or review</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Social media direction</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Content planning</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Landing page recommendations</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Conversion tracking</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Analytics setup</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Monthly reports</span></div>
+      <div class="check-item"><div class="chk-ic">✓</div><span>Optimization roadmap</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKING & REPORTING -->
+<section class="section alt">
+  <div class="container">
+    <div class="track-in">
+      <div>
+        <span class="eye">Tracking &amp; Reporting</span>
+        <h2 class="h2">You Should Know Where Your Marketing Budget Is Going</h2>
+        <p class="sub" style="max-width:100%">Good marketing is not just about posting content or launching campaigns. You need clear tracking so you can understand what is working, what is not working, and where your next opportunity is.</p>
+        <a href="#cta" class="btn btn-g" style="margin-top:28px">Get a Free Marketing Audit</a>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-card-ic">👥</div>
+          <h4>Traffic</h4>
+          <p>How many people are visiting and where they come from.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-ic">📩</div>
+          <h4>Leads</h4>
+          <p>How many people contact you, book a call, submit a form, or request a quote.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-ic">💰</div>
+          <h4>Cost Per Lead</h4>
+          <p>How much you are spending to generate each lead.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-ic">⚡</div>
+          <h4>Conversion Rate</h4>
+          <p>How many visitors turn into leads or customers.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-ic">🔍</div>
+          <h4>Keyword Growth</h4>
+          <p>How your visibility improves on search engines.</p>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-ic">📣</div>
+          <h4>Campaign Performance</h4>
+          <p>Which ads, channels, and messages are producing results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section" id="case-studies">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Our Work</span>
+      <h2 class="h2">Marketing Work That Solves Real Growth Problems</h2>
+    </div>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-thumb th1">📩</div>
+        <div class="cs-body">
+          <span class="tag t-g">Lead Generation</span>
+          <h3>Lead Generation Campaign for a Service Business</h3>
+          <p class="cs-prob"><strong>Problem:</strong> The client was getting website visits but not enough serious inquiries.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px">We improved campaign targeting, landing page messaging, CTAs, and conversion tracking.</p>
+          <div class="cs-res r1">✓ Better lead quality, clearer campaign performance, and stronger inquiry flow.</div>
+          <a href="#" class="cs-lnk">View Case Study →</a>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-thumb th2">🔍</div>
+        <div class="cs-body">
+          <span class="tag t-b">SEO Growth</span>
+          <h3>SEO Growth for a Local Business</h3>
+          <p class="cs-prob"><strong>Problem:</strong> The client had a website but was not visible for important search terms.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px">We improved page structure, on-page SEO, local SEO signals, and content planning.</p>
+          <div class="cs-res r2">✓ Better search visibility and more organic traffic from relevant local searches.</div>
+          <a href="#" class="cs-lnk">View Case Study →</a>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-thumb th3">📲</div>
+        <div class="cs-body">
+          <span class="tag t-v">Social Media</span>
+          <h3>Social Media Strategy for Brand Awareness</h3>
+          <p class="cs-prob"><strong>Problem:</strong> The client was posting without a clear content direction.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px">We created a content strategy, messaging framework, posting themes, and campaign direction.</p>
+          <div class="cs-res r3">✓ More consistent brand presence, clearer messaging, and stronger audience engagement.</div>
+          <a href="#" class="cs-lnk">View Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section alt">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Our Difference</span>
+      <h2 class="h2">Why Businesses Choose Us for Marketing</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-ic">📈</div>
+        <div>
+          <h4>We focus on business outcomes</h4>
+          <p>Traffic, clicks, and impressions matter only when they support leads, sales, and growth.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">🌐</div>
+        <div>
+          <h4>We understand the website side too</h4>
+          <p>Marketing performs better when the website, landing page, speed, message, and CTA are built correctly.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">📊</div>
+        <div>
+          <h4>We do not guess blindly</h4>
+          <p>We use research, tracking, testing, and reporting to guide decisions.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">🗺️</div>
+        <div>
+          <h4>We care about the full customer journey</h4>
+          <p>We look at what happens before, during, and after someone visits your website.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">💬</div>
+        <div>
+          <h4>We communicate clearly</h4>
+          <p>You know what we are doing, why it matters, and how it supports your business goals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE: MKT + DEV -->
+<section class="bridge-sec">
+  <div class="container">
+    <div class="bridge-in">
+      <div class="bridge-vis">
+        <div class="bv-card active">
+          <div class="bv-ic">📈</div>
+          <div>
+            <h4 class="g">Marketing</h4>
+            <p>SEO, ads, content, and social bring the right people to your business.</p>
+          </div>
+        </div>
+        <div class="bridge-conn">↓ But Needs ↓</div>
+        <div class="bv-card">
+          <div class="bv-ic">🌐</div>
+          <div>
+            <h4 class="b">A Website That Converts</h4>
+            <p>Fast, clear, well-structured — or traffic turns into wasted opportunity.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="eye">The Full Picture</span>
+        <h2 class="h2">If Your Website Is Not Ready,<br>Marketing Will <span style="color:#f87171">Struggle</span></h2>
+        <p class="sub" style="max-width:100%">Marketing can bring people to your business, but your website must convert them. If your website is slow, confusing, outdated, or missing clear calls-to-action, even good traffic can turn into wasted opportunity.</p>
+        <p style="color:var(--muted);margin-top:16px;font-size:15px;line-height:1.7">Because we also build websites, landing pages, and digital platforms, we can improve both sides of the growth system: the traffic and the conversion experience.</p>
+        <a href="/development" class="btn btn-b" style="margin-top:28px">Explore Development Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="center">
+      <span class="eye">FAQ</span>
+      <h2 class="h2">Marketing Questions We Hear Often</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <details>
+          <summary class="faq-q">How long does marketing take to show results?</summary>
+          <div class="faq-a">Paid ads can generate data quickly, while SEO and content usually take longer. The timeline depends on your market, website, budget, and current online presence.</div>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-q">Do I need SEO or Google Ads first?</summary>
+          <div class="faq-a">It depends on your goals. Google Ads can help generate faster traffic, while SEO builds long-term visibility. Many businesses benefit from using both strategically.</div>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-q">Can you manage my Google Ads?</summary>
+          <div class="faq-a">Yes. We can set up, review, manage, optimize, and report on Google Ads campaigns.</div>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-q">Do you create social media content?</summary>
+          <div class="faq-a">Yes. We can help with strategy, content planning, campaign direction, post ideas, and creative guidance.</div>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-q">Can you improve my existing website conversion?</summary>
+          <div class="faq-a">Yes. We can review your website structure, landing pages, CTAs, forms, messaging, and user journey to find conversion improvements.</div>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary class="faq-q">Do you provide monthly reports?</summary>
+          <div class="faq-a">Yes. We provide clear reports showing performance, insights, and recommended next steps.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT FORM — paste anywhere -->
+<section style="padding: 96px 0; background: #0c1628;">
+  <div style="max-width: 640px; margin: 0 auto; padding: 0 28px;">
+
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 40px;">
+      <span style="display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #3b82f6; margin-bottom: 12px;">Contact Us</span>
+      <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: #f1f5f9; line-height: 1.15; margin-bottom: 12px;">Let's Talk About Your Project</h2>
+      <p style="font-size: 16px; color: #7a90ae; line-height: 1.65;">Tell us what you need. We will review your goals and recommend the best next step.</p>
+    </div>
+
+    <!-- Form Card -->
+    <div style="background: #111f38; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 40px;">
+
+      <!-- Success Message (hidden by default) -->
+      <div id="form-success" style="display:none; text-align:center; padding: 32px 20px;">
+        <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
+        <h3 style="font-family:'Sora',sans-serif; font-size:22px; font-weight:800; color:#f1f5f9; margin-bottom:10px;">Message Sent!</h3>
+        <p style="font-size:15px; color:#7a90ae;">Thanks for reaching out. We will get back to you within 1 business day.</p>
+      </div>
+
+      <!-- Error Message (hidden by default) -->
+      <div id="form-error" style="display:none; background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.3); border-radius:10px; padding:16px 20px; margin-bottom:20px; text-align:center;">
+        <p style="font-size:14px; color:#f87171; margin:0;" id="error-text">Something went wrong. Please try again or email us directly.</p>
+      </div>
+
+      <form id="contact-form">
+
+        <!-- Name + Email -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 7px;">Full Name</label>
+            <input
+              type="text" id="f-name" name="name" placeholder="John Smith" required
+              style="width:100%;background:#0c1628;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 14px;font-size:14px;color:#e2e8f0;outline:none;font-family:inherit;transition:border-color .2s;"
+              onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+            >
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 7px;">Email Address</label>
+            <input
+              type="email" id="f-email" name="email" placeholder="john@company.com" required
+              style="width:100%;background:#0c1628;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 14px;font-size:14px;color:#e2e8f0;outline:none;font-family:inherit;transition:border-color .2s;"
+              onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+            >
+          </div>
+        </div>
+
+        <!-- Phone + Service -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 7px;">Phone Number <span style="color:#475569;font-weight:400">(optional)</span></label>
+            <input
+              type="tel" id="f-phone" name="phone" placeholder="+1 234 567 8900"
+              style="width:100%;background:#0c1628;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 14px;font-size:14px;color:#e2e8f0;outline:none;font-family:inherit;transition:border-color .2s;"
+              onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+            >
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 7px;">I Need</label>
+            <select
+              id="f-service" name="service"
+              style="width:100%;background:#0c1628;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 14px;font-size:14px;color:#e2e8f0;outline:none;font-family:inherit;appearance:none;cursor:pointer;transition:border-color .2s;"
+              onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+            >
+              <option value="" style="background:#111f38">Select a service...</option>
+              <option value="Website Development"      style="background:#111f38">Website Development</option>
+              <option value="Mobile App Development"   style="background:#111f38">Mobile App Development</option>
+              <option value="E-commerce Development"   style="background:#111f38">E-commerce Development</option>
+              <option value="Custom Software"           style="background:#111f38">Custom Software</option>
+              <option value="SEO Services"              style="background:#111f38">SEO Services</option>
+              <option value="Google Ads"                style="background:#111f38">Google Ads</option>
+              <option value="Social Media Marketing"    style="background:#111f38">Social Media Marketing</option>
+              <option value="Marketing Strategy"        style="background:#111f38">Marketing Strategy</option>
+              <option value="Not Sure Yet"              style="background:#111f38">Not Sure Yet</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Budget -->
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 10px;">Budget Range</label>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <label style="cursor:pointer;"><input type="radio" name="budget" value="Under $1k"   style="display:none" onchange="selectBudget(this)"><span class="budget-chip" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);font-size:13px;font-weight:500;color:#94a3b8;background:#0c1628;cursor:pointer;">Under $1k</span></label>
+            <label style="cursor:pointer;"><input type="radio" name="budget" value="$1k – $5k"   style="display:none" onchange="selectBudget(this)"><span class="budget-chip" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);font-size:13px;font-weight:500;color:#94a3b8;background:#0c1628;cursor:pointer;">$1k – $5k</span></label>
+            <label style="cursor:pointer;"><input type="radio" name="budget" value="$5k – $15k"  style="display:none" onchange="selectBudget(this)"><span class="budget-chip" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);font-size:13px;font-weight:500;color:#94a3b8;background:#0c1628;cursor:pointer;">$5k – $15k</span></label>
+            <label style="cursor:pointer;"><input type="radio" name="budget" value="$15k+"        style="display:none" onchange="selectBudget(this)"><span class="budget-chip" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);font-size:13px;font-weight:500;color:#94a3b8;background:#0c1628;cursor:pointer;">$15k+</span></label>
+            <label style="cursor:pointer;"><input type="radio" name="budget" value="Not Sure"     style="display:none" onchange="selectBudget(this)"><span class="budget-chip" style="display:inline-block;padding:8px 16px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);font-size:13px;font-weight:500;color:#94a3b8;background:#0c1628;cursor:pointer;">Not Sure</span></label>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 7px;">Tell Us About Your Project</label>
+          <textarea
+            id="f-message" name="message" rows="5"
+            placeholder="Describe what you want to build or improve. The more detail you share, the better we can help." required
+            style="width:100%;background:#0c1628;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 14px;font-size:14px;color:#e2e8f0;outline:none;font-family:inherit;resize:vertical;line-height:1.65;transition:border-color .2s;"
+            onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit" id="submit-btn"
+          style="width:100%;background:#3b82f6;color:#fff;border:none;border-radius:8px;padding:16px 28px;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:10px;"
+          onmouseover="this.style.opacity='.88';this.style.transform='translateY(-1px)'"
+          onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'"
+        >
+          <span id="btn-text">Send Message →</span>
+          <!-- Spinner (hidden by default) -->
+          <span id="btn-spinner" style="display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;"></span>
+        </button>
+
+        <p style="text-align:center;font-size:12px;color:#475569;margin-top:16px;">
+          No spam. No commitment. We reply within 1 business day.
+        </p>
+
+      </form>
+    </div>
+
+    <!-- Contact info row -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;">
+      <div style="background:#111f38;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:20px;margin-bottom:6px;">📧</div>
+        <div style="font-size:12px;color:#7a90ae;">Email</div>
+        <div style="font-size:13px;font-weight:600;color:#e2e8f0;margin-top:2px;">hello@trivonstudios.com</div>
+      </div>
+      <div style="background:#111f38;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:20px;margin-bottom:6px;">📞</div>
+        <div style="font-size:12px;color:#7a90ae;">Phone</div>
+        <div style="font-size:13px;font-weight:600;color:#e2e8f0;margin-top:2px;">+1 (555) 000-0000</div>
+      </div>
+      <div style="background:#111f38;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:20px;margin-bottom:6px;">⏱️</div>
+        <div style="font-size:12px;color:#7a90ae;">Response Time</div>
+        <div style="font-size:13px;font-weight:600;color:#e2e8f0;margin-top:2px;">Within 1 Business Day</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<script>
+  /* ── Budget pill highlight ── */
+  function selectBudget(input) {
+    document.querySelectorAll('.budget-chip').forEach(chip => {
+      chip.style.background   = '#0c1628';
+      chip.style.color        = '#94a3b8';
+      chip.style.borderColor  = 'rgba(255,255,255,0.1)';
+    });
+    const chip = input.nextElementSibling;
+    chip.style.background  = 'rgba(59,130,246,0.15)';
+    chip.style.color       = '#3b82f6';
+    chip.style.borderColor = 'rgba(59,130,246,0.4)';
+  }
+
+  /* ── Form submit → send-mail.php ── */
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const btn        = document.getElementById('submit-btn');
+    const btnText    = document.getElementById('btn-text');
+    const spinner    = document.getElementById('btn-spinner');
+    const errorBox   = document.getElementById('form-error');
+    const errorText  = document.getElementById('error-text');
+    const successBox = document.getElementById('form-success');
+
+    // Hide any previous error
+    errorBox.style.display = 'none';
+
+    // Build JSON payload from all fields
+    const payload = {
+      name:    document.getElementById('f-name').value.trim(),
+      email:   document.getElementById('f-email').value.trim(),
+      phone:   document.getElementById('f-phone').value.trim() || null,
+      service: document.getElementById('f-service').value     || null,
+      budget:  (document.querySelector('input[name="budget"]:checked') || {}).value || null,
+      message: document.getElementById('f-message').value.trim(),
+      page:    window.location.pathname,   // which page the form was submitted from
+      sent_at: new Date().toISOString()
+    };
+
+    // Basic client-side validation
+    if (!payload.name || !payload.email || !payload.message) {
+      errorText.textContent = 'Please fill in your name, email, and message.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    // Loading state
+    btn.disabled          = true;
+    btn.style.opacity     = '0.7';
+    btn.style.cursor      = 'not-allowed';
+    btnText.textContent   = 'Sending...';
+    spinner.style.display = 'inline-block';
+
+    try {
+      const response = await fetch('send-mail.php', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+
+      // Try to parse JSON response from server
+      let result = {};
+      try { result = await response.json(); } catch (_) {}
+
+      if (response.ok && result.success !== false) {
+        // SUCCESS — hide form, show thank-you
+        document.getElementById('contact-form').style.display = 'none';
+        successBox.style.display = 'block';
+      } else {
+        // SERVER returned an error
+        const msg = result.message || 'Something went wrong. Please try again.';
+        errorText.textContent  = msg;
+        errorBox.style.display = 'block';
+
+        // Reset button
+        btn.disabled          = false;
+        btn.style.opacity     = '1';
+        btn.style.cursor      = 'pointer';
+        btnText.textContent   = 'Send Message →';
+        spinner.style.display = 'none';
+      }
+
+    } catch (err) {
+      // NETWORK error (server unreachable, CORS, etc.)
+      errorText.textContent  = 'Could not reach the server. Check your connection and try again.';
+      errorBox.style.display = 'block';
+
+      btn.disabled          = false;
+      btn.style.opacity     = '1';
+      btn.style.cursor      = 'pointer';
+      btnText.textContent   = 'Send Message →';
+      spinner.style.display = 'none';
+    }
+  });
+</script>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="logo">Trivon<span>Studios</span></div>
+        <p>We build digital platforms and marketing systems that help businesses grow online.</p>
+        <a href="#cta" class="btn btn-g">Book a Free Consultation</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Process</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Development</h4>
+        <ul>
+          <li><a href="#">Website Development</a></li>
+          <li><a href="#">Mobile App Development</a></li>
+          <li><a href="#">E-commerce Development</a></li>
+          <li><a href="#">Custom Software</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Marketing</h4>
+        <ul>
+          <li><a href="#">SEO Services</a></li>
+          <li><a href="#">Google Ads</a></li>
+          <li><a href="#">Social Media Marketing</a></li>
+          <li><a href="#">Content Marketing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 Trivon Studios. All rights reserved.</p>
+      <p>We build the system. Then we help you grow it.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

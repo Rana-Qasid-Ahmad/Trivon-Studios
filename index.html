@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivon Studioss — Build. Market. Grow.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg:     #060d1b;
+      --bg2:    #0c1628;
+      --bg3:    #111f38;
+      --bg4:    #162240;
+      --border: rgba(255,255,255,0.08);
+      --text:   #e2e8f0;
+      --muted:  #7a90ae;
+      --blue:   #3b82f6;
+      --blue-d: #2563eb;
+      --violet: #8b5cf6;
+      --green:  #10b981;
+      --cyan:   #06b6d4;
+      --r:      14px;
+      --max:    1160px;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 16px; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+    .section    { padding: 96px 0; }
+    .alt        { background: var(--bg2); }
+    .center     { text-align: center; }
+
+    h1,h2,h3,h4 { font-family: 'Sora', sans-serif; line-height: 1.15; color: #f1f5f9; }
+
+    .eye {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 14px;
+    }
+
+    .h1 { font-size: clamp(34px, 5vw, 60px); font-weight: 800; }
+    .h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; }
+
+    .sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 580px; margin-top: 16px;
+    }
+    .c-sub { margin-left: auto; margin-right: auto; }
+
+    .b { color: var(--blue); }
+    .v { color: var(--violet); }
+    .g { color: var(--green); }
+
+    /* Buttons */
+    .btn {
+      display: inline-block; padding: 14px 28px;
+      border-radius: 8px; font-weight: 600; font-size: 15px;
+      cursor: pointer; border: 2px solid transparent;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: .88; }
+    .btn-b  { background: var(--blue);   color: #fff; border-color: var(--blue); }
+    .btn-v  { background: var(--violet); color: #fff; border-color: var(--violet); }
+    .btn-gr { background: var(--green);  color: #fff; border-color: var(--green); }
+    .btn-ol { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-ol:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-ow { background: transparent; color: #fff; border-color: rgba(255,255,255,.25); }
+    .btn-ow:hover { border-color: rgba(255,255,255,.6); }
+    .lg { padding: 17px 36px; font-size: 16px; }
+
+    /* Tags */
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+    .t-b { background: rgba(59,130,246,.15); color: var(--blue);   border: 1px solid rgba(59,130,246,.3); }
+    .t-v { background: rgba(139,92,246,.15); color: var(--violet); border: 1px solid rgba(139,92,246,.3); }
+    .t-g { background: rgba(16,185,129,.12); color: var(--green);  border: 1px solid rgba(16,185,129,.3); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(6,13,27,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: #f1f5f9; }
+    .logo span { color: var(--blue); }
+    .nav-ul { display: flex; gap: 28px; list-style: none; }
+    .nav-ul a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color .2s; }
+    .nav-ul a:hover { color: #f1f5f9; }
+    .nav-cta { display: flex; gap: 10px; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 0 80px;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -140px; right: -100px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -60px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,92,246,.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-in { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.25);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 13px; font-weight: 600; color: var(--blue);
+      margin-bottom: 24px;
+    }
+    .bdot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .hero h1 { margin-bottom: 20px; }
+    .hero .sub { font-size: 18px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Hero mockup */
+    .hero-vis { position: relative; }
+    .mockup {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 18px; padding: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.5);
+    }
+    .mbar { display: flex; gap: 6px; margin-bottom: 14px; align-items: center; }
+    .mdot { width: 10px; height: 10px; border-radius: 50%; }
+    .mdot:nth-child(1){background:#f87171;} .mdot:nth-child(2){background:#fbbf24;} .mdot:nth-child(3){background:#4ade80;}
+    .murl {
+      flex: 1; background: var(--bg3); border-radius: 6px; height: 22px;
+      margin-left: 8px; display: flex; align-items: center;
+      padding: 0 10px; font-size: 11px; color: var(--muted);
+    }
+    .mbody { display: flex; flex-direction: column; gap: 10px; }
+    .mhero-a {
+      background: linear-gradient(135deg, rgba(59,130,246,.15), rgba(139,92,246,.12));
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; text-align: center;
+    }
+    .mhero-a .mh { font-family:'Sora',sans-serif; font-size:13px; font-weight:800; color:#f1f5f9; margin-bottom:5px; }
+    .mhero-a .mp { font-size:10px; color:var(--muted); margin-bottom:10px; }
+    .mbtn-row { display:flex; gap:6px; justify-content:center; }
+    .mb { padding:5px 12px; border-radius:5px; font-size:10px; font-weight:600; }
+    .mb-b { background:var(--blue); color:#fff; }
+    .mb-o { background:rgba(59,130,246,.15); color:var(--blue); border:1px solid rgba(59,130,246,.3); }
+    .mstats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .mst { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:10px; text-align:center; }
+    .mst-n { font-family:'Sora',sans-serif; font-size:15px; font-weight:800; }
+    .mst-l { font-size:9px; color:var(--muted); }
+    .mchart { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:12px; display:flex; align-items:flex-end; gap:4px; height:72px; }
+    .mbar-c { flex:1; border-radius:3px 3px 0 0; background:linear-gradient(180deg, var(--blue), var(--blue-d)); }
+    .fc {
+      position:absolute; background:var(--bg3); border:1px solid var(--border);
+      border-radius:12px; padding:12px 16px;
+      box-shadow:0 8px 24px rgba(0,0,0,.4); font-size:12px; white-space:nowrap;
+    }
+    .fc.tl{top:-16px;left:-24px;} .fc.br{bottom:-16px;right:-24px;}
+    .fv{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;margin-bottom:2px;}
+    .fl{color:var(--muted);font-size:11px;}
+
+    /* ── CHOICE ── */
+    .choice-intro { max-width:620px; margin:0 auto 56px; text-align:center; }
+    .choice-grid  { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .cc {
+      border-radius:18px; padding:40px;
+      border:2px solid var(--border);
+      background: var(--bg3);
+      transition:transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .cc:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.3); }
+    .cc.dev:hover { border-color:rgba(59,130,246,.4); }
+    .cc.mkt:hover { border-color:rgba(139,92,246,.4); }
+    .cc-icon { font-size:36px; margin-bottom:18px; }
+    .cc h3 { font-size:22px; margin-bottom:12px; }
+    .cc p  { font-size:15px; color:var(--muted); margin-bottom:20px; }
+    .cc-ul { list-style:none; margin-bottom:28px; }
+    .cc-ul li {
+      font-size:14px; padding:8px 0; color:var(--text);
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:center; gap:8px;
+    }
+    .cc-ul li::before { content:'→'; font-weight:700; font-size:12px; }
+    .dev .cc-ul li::before { color:var(--blue); }
+    .mkt .cc-ul li::before { color:var(--violet); }
+
+    /* ── POSITIONING ── */
+    .pos-in { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .pos-vis { display:flex; flex-direction:column; gap:16px; }
+    .eng {
+      border-radius:14px; padding:24px 28px;
+      display:flex; align-items:center; gap:18px;
+    }
+    .eng.dev-e { background:rgba(59,130,246,.08); border:1px solid rgba(59,130,246,.2); }
+    .eng.mkt-e { background:rgba(139,92,246,.08); border:1px solid rgba(139,92,246,.2); }
+    .eng-ic { font-size:28px; flex-shrink:0; }
+    .eng h4 { font-size:16px; font-weight:700; margin-bottom:4px; }
+    .eng p  { font-size:13px; color:var(--muted); }
+    .eng-conn {
+      text-align:center; padding:10px 0;
+      font-size:12px; font-weight:700;
+      color:var(--green); letter-spacing:.06em; text-transform:uppercase;
+    }
+
+    /* ── PROBLEMS ── */
+    .prob-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:48px; }
+    .prob-card {
+      display:flex; gap:16px; align-items:flex-start;
+      background:var(--bg3); border:1px solid var(--border);
+      border-radius:var(--r); padding:24px;
+      transition:border-color .2s;
+    }
+    .prob-card:hover { border-color:rgba(248,113,113,.3); }
+    .prob-ic {
+      width:40px; height:40px; border-radius:10px;
+      background:rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; flex-shrink:0;
+    }
+    .prob-card h4 { font-size:15px; font-weight:700; color:#f1f5f9; margin-bottom:6px; }
+    .prob-card p  { font-size:13px; color:var(--muted); }
+
+    /* ── SOLUTION ── */
+    .sol-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+    .sol-card {
+      background:var(--bg3); border:1px solid var(--border);
+      border-radius:var(--r); padding:32px;
+      position:relative; overflow:hidden;
+      transition:transform .2s, border-color .2s;
+    }
+    .sol-card:hover { transform:translateY(-4px); }
+    .sol-card:nth-child(1):hover { border-color:rgba(59,130,246,.4); }
+    .sol-card:nth-child(2):hover { border-color:rgba(139,92,246,.4); }
+    .sol-card:nth-child(3):hover { border-color:rgba(16,185,129,.4); }
+    .sol-bg-n {
+      font-family:'Sora',sans-serif; font-size:72px; font-weight:800;
+      color:rgba(255,255,255,.04); position:absolute; top:-12px; right:10px; line-height:1; user-select:none;
+    }
+    .sol-em  { font-size:28px; margin-bottom:16px; }
+    .sol-card h3 { font-size:18px; margin-bottom:10px; }
+    .sol-card p  { font-size:14px; color:var(--muted); line-height:1.65; }
+
+    /* ── SERVICES ── */
+    .srv-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:48px; }
+    .srv-col { background:var(--bg3); border:1px solid var(--border); border-radius:18px; overflow:hidden; }
+    .srv-hdr { padding:28px 32px 20px; border-bottom:1px solid var(--border); }
+    .srv-hdr.dh { background:rgba(59,130,246,.08); }
+    .srv-hdr.mh { background:rgba(139,92,246,.08); }
+    .srv-hdr-ic { font-size:28px; margin-bottom:10px; }
+    .srv-hdr h3 { font-size:20px; }
+    .srv-ul { list-style:none; padding:8px 0; }
+    .srv-li {
+      padding:16px 32px; border-bottom:1px solid var(--border);
+      transition:background .15s;
+    }
+    .srv-li:last-child { border-bottom:none; }
+    .srv-li:hover { background:var(--bg4); }
+    .srv-li h4 { font-size:14px; font-weight:600; color:#f1f5f9; margin-bottom:3px; }
+    .srv-li p  { font-size:13px; color:var(--muted); }
+    .srv-ftr { padding:20px 32px; border-top:1px solid var(--border); }
+
+    /* ── PROOF ── */
+    .proof-in { display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:center; }
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .stat-box {
+      background:var(--bg3); border:1px solid var(--border);
+      border-radius:var(--r); padding:28px 24px; text-align:center;
+      transition:border-color .2s;
+    }
+    .stat-box:hover { border-color:rgba(59,130,246,.4); }
+    .stat-n { font-family:'Sora',sans-serif; font-size:40px; font-weight:800; color:var(--blue); line-height:1; }
+    .stat-l { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.4; }
+
+    /* ── CASE STUDIES ── */
+    .cs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+    .cs-card {
+      background:var(--bg3); border:1px solid var(--border);
+      border-radius:var(--r); overflow:hidden;
+      transition:transform .2s, border-color .2s;
+    }
+    .cs-card:hover { transform:translateY(-4px); }
+    .cs-thumb { height:148px; display:flex; align-items:center; justify-content:center; font-size:40px; }
+    .th1 { background:linear-gradient(135deg, rgba(59,130,246,.2), rgba(37,99,235,.15)); }
+    .th2 { background:linear-gradient(135deg, rgba(139,92,246,.2), rgba(109,40,217,.15)); }
+    .th3 { background:linear-gradient(135deg, rgba(16,185,129,.2), rgba(5,150,105,.15)); }
+    .cs-body { padding:24px; }
+    .cs-body h3 { font-size:16px; margin:10px 0; }
+    .cs-body p  { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:14px; }
+    .cs-res { padding:10px 14px; border-radius:8px; font-size:13px; font-weight:600; margin-bottom:14px; }
+    .r1 { background:rgba(59,130,246,.12); color:var(--blue); border:1px solid rgba(59,130,246,.2); }
+    .r2 { background:rgba(139,92,246,.12); color:var(--violet); border:1px solid rgba(139,92,246,.2); }
+    .r3 { background:rgba(16,185,129,.1);  color:var(--green);  border:1px solid rgba(16,185,129,.2); }
+    .cs-lnk { font-size:13px; font-weight:600; color:var(--blue); }
+    .cs-lnk:hover { text-decoration:underline; }
+
+    /* ── PROCESS ── */
+    .proc-steps {
+      display:grid; grid-template-columns:repeat(6,1fr);
+      gap:0; margin-top:56px; position:relative;
+    }
+    .proc-steps::before {
+      content:''; position:absolute; top:28px; left:8.33%; right:8.33%;
+      height:2px; background:linear-gradient(90deg, var(--blue), var(--violet));
+    }
+    .ps { text-align:center; padding:0 12px; position:relative; z-index:1; }
+    .pc {
+      width:56px; height:56px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Sora',sans-serif; font-size:16px; font-weight:800;
+      color:#fff; margin:0 auto 18px;
+    }
+    .pc1{background:var(--blue);}    .pc2{background:#1d4ed8;}
+    .pc3{background:var(--violet);}  .pc4{background:#6d28d9;}
+    .pc5{background:var(--cyan);}    .pc6{background:var(--green);}
+    .ps h4 { font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px; }
+    .ps p  { font-size:12px; color:var(--muted); line-height:1.5; }
+
+    /* ── WHY US ── */
+    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:48px; }
+    .why-card {
+      display:flex; gap:18px; align-items:flex-start;
+      background:var(--bg3); border:1px solid var(--border);
+      border-radius:var(--r); padding:28px;
+      transition:border-color .2s, transform .2s;
+    }
+    .why-card:hover { border-color:rgba(59,130,246,.35); transform:translateY(-2px); }
+    .why-ic {
+      width:48px; height:48px; border-radius:12px;
+      background:rgba(59,130,246,.1); border:1px solid rgba(59,130,246,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px; flex-shrink:0;
+    }
+    .why-card h4 { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:6px; }
+    .why-card p  { font-size:14px; color:var(--muted); line-height:1.6; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px; }
+    .tc {
+      background:var(--bg3); border:1px solid var(--border);
+      border-radius:var(--r); padding:32px;
+      transition:border-color .2s;
+    }
+    .tc:hover { border-color:rgba(59,130,246,.3); }
+    .qm { font-size:40px; color:rgba(59,130,246,.4); line-height:.8; margin-bottom:14px; font-family:Georgia,serif; }
+    .tc blockquote { font-size:15px; color:#cbd5e1; line-height:1.7; font-style:italic; margin-bottom:24px; }
+    .ta { display:flex; gap:14px; align-items:center; }
+    .av {
+      width:46px; height:46px; border-radius:50%;
+      background:linear-gradient(135deg, var(--blue), var(--violet));
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; font-weight:700; color:#fff; flex-shrink:0;
+    }
+    .an { font-size:14px; font-weight:700; color:#f1f5f9; }
+    .ar { font-size:12px; color:var(--muted); }
+
+    /* ── CTA ── */
+    .cta-sec {
+      padding:100px 0; text-align:center; position:relative; overflow:hidden;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .cta-sec::before {
+      content:''; position:absolute; top:-120px; left:50%; transform:translateX(-50%);
+      width:800px; height:800px; border-radius:50%;
+      background:radial-gradient(circle, rgba(59,130,246,.15) 0%, transparent 65%);
+      pointer-events:none;
+    }
+    .cta-sec h2 { position:relative; }
+    .cta-sec .sub { position:relative; }
+    .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:36px; position:relative; }
+    .cta-note { font-size:13px; color:var(--muted); margin-top:20px; position:relative; }
+
+    /* ── FOOTER ── */
+    footer { background:var(--bg); border-top:1px solid var(--border); padding:64px 0 32px; }
+    .ft-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .ft-brand p { font-size:14px; color:var(--muted); margin-top:12px; max-width:260px; line-height:1.65; }
+    .ft-brand .btn { margin-top:20px; }
+    .ft-col h4 {
+      font-size:12px; font-weight:700; text-transform:uppercase;
+      letter-spacing:.08em; color:#f1f5f9; margin-bottom:16px;
+    }
+    .ft-col ul { list-style:none; }
+    .ft-col li { margin-bottom:10px; }
+    .ft-col a { font-size:14px; color:var(--muted); transition:color .2s; }
+    .ft-col a:hover { color:var(--blue); }
+    .ft-bot {
+      border-top:1px solid var(--border); padding-top:24px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .ft-bot p { font-size:13px; color:var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .nav-ul { display:none; }
+      .hero-in, .pos-in, .proof-in,
+      .choice-grid, .srv-grid, .why-grid, .testi-grid { grid-template-columns:1fr; }
+      .hero-vis { display:none; }
+      .sol-grid, .cs-grid { grid-template-columns:1fr 1fr; }
+      .proc-steps { grid-template-columns:1fr 1fr; }
+      .proc-steps::before { display:none; }
+      .ft-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .sol-grid, .cs-grid, .prob-grid, .why-grid,
+      .stat-grid, .proc-steps, .ft-grid { grid-template-columns:1fr; }
+      .nav-cta .btn-ol { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-in">
+    <div class="logo">Trivon<span>Studios</span></div>
+    <ul class="nav-ul">
+      <li><a href="#">Home</a></li>
+      <li><a href="#choice">Development</a></li>
+      <li><a href="#choice">Marketing</a></li>
+      <li><a href="#cs">Case Studies</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ol">Log in</a>
+      <a href="#cta" class="btn btn-b">Book a Free Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-in">
+      <div>
+        <div class="hero-badge">
+          <span class="bdot"></span>
+          Development &amp; Marketing Agency
+        </div>
+        <h1 class="h1">Your Business Needs More Than a Website. It Needs a <span class="b">Growth System.</span></h1>
+        <p class="sub">We help businesses build high-performing websites, apps, and digital platforms — then grow them with smart marketing systems that bring traffic, leads, and sales.</p>
+        <div class="hero-btns">
+          <a href="#choice" class="btn btn-b lg">I Need Development</a>
+          <a href="#choice" class="btn btn-v lg">I Need Marketing</a>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <div class="fc tl">
+          <div class="fv g">+127%</div>
+          <div class="fl">Organic Traffic Growth</div>
+        </div>
+        <div class="mockup">
+          <div class="mbar">
+            <span class="mdot"></span><span class="mdot"></span><span class="mdot"></span>
+            <div class="murl">trivonstudios.com/dashboard</div>
+          </div>
+          <div class="mbody">
+            <div class="mhero-a">
+              <div class="mh">Your Growth Dashboard</div>
+              <div class="mp">Strategy · Design · Development · Marketing</div>
+              <div class="mbtn-row">
+                <span class="mb mb-b">I Need Dev</span>
+                <span class="mb mb-o">I Need Marketing</span>
+              </div>
+            </div>
+            <div class="mstats">
+              <div class="mst"><div class="mst-n b">50+</div><div class="mst-l">Projects</div></div>
+              <div class="mst"><div class="mst-n g">2×</div><div class="mst-l">More Leads</div></div>
+              <div class="mst"><div class="mst-n v">100%</div><div class="mst-l">Strategy-Led</div></div>
+            </div>
+            <div class="mchart">
+              <div class="mbar-c" style="height:35%"></div>
+              <div class="mbar-c" style="height:48%"></div>
+              <div class="mbar-c" style="height:42%"></div>
+              <div class="mbar-c" style="height:64%"></div>
+              <div class="mbar-c" style="height:55%"></div>
+              <div class="mbar-c" style="height:80%"></div>
+              <div class="mbar-c" style="height:72%"></div>
+              <div class="mbar-c" style="height:90%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fc br">
+          <div class="fv b">3.2×</div>
+          <div class="fl">Average ROI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHOICE -->
+<section class="section alt" id="choice">
+  <div class="container">
+    <div class="choice-intro">
+      <span class="eye">Where Do You Want to Start?</span>
+      <h2 class="h2">Where do you want to start?</h2>
+      <p class="sub" style="margin:16px auto 0">Every business grows differently. Some need a stronger digital foundation. Others need more traffic, leads, and sales. Choose the path that fits your current goal.</p>
+    </div>
+    <div class="choice-grid">
+      <div class="cc dev">
+        <div class="cc-icon">🖥️</div>
+        <span class="tag t-b" style="margin-bottom:14px">Development</span>
+        <h3>Build My Digital Platform</h3>
+        <p>Your website, app, or software should not just look good. It should be fast, scalable, user-friendly, and built to support business growth.</p>
+        <ul class="cc-ul">
+          <li>Website Development</li>
+          <li>Mobile App Development</li>
+          <li>E-commerce Development</li>
+          <li>Custom Software</li>
+          <li>UI/UX Design</li>
+        </ul>
+        <a href="#srv" class="btn btn-b">Explore Development Services</a>
+      </div>
+      <div class="cc mkt">
+        <div class="cc-icon">📈</div>
+        <span class="tag t-v" style="margin-bottom:14px">Marketing</span>
+        <h3>Grow My Business Online</h3>
+        <p>A great platform needs the right traffic. We help you attract, convert, and retain customers through strategy-driven digital marketing.</p>
+        <ul class="cc-ul">
+          <li>SEO</li>
+          <li>Google Ads</li>
+          <li>Social Media Marketing</li>
+          <li>Content Marketing</li>
+          <li>Conversion Optimization</li>
+        </ul>
+        <a href="#srv" class="btn btn-v">Explore Marketing Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING -->
+<section class="section">
+  <div class="container">
+    <div class="pos-in">
+      <div class="pos-vis">
+        <div class="eng dev-e">
+          <div class="eng-ic">🏗️</div>
+          <div>
+            <h4 class="b">Development Engine</h4>
+            <p>Websites, apps, stores, and software built for speed, scale, and conversion.</p>
+          </div>
+        </div>
+        <div class="eng-conn">↕ Connected System — Better Together ↕</div>
+        <div class="eng mkt-e">
+          <div class="eng-ic">🎯</div>
+          <div>
+            <h4 class="v">Marketing Engine</h4>
+            <p>SEO, ads, content, and social systems that bring the right people to your platform.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="eye">Our Unique Advantage</span>
+        <h2 class="h2">We Build the System. Then We Help You <span class="g">Grow It.</span></h2>
+        <p class="sub" style="max-width:100%">Most agencies focus on only one side. Some build websites but do not understand how to bring traffic. Others run marketing campaigns but ignore the quality of the website, landing page, or customer journey.</p>
+        <p style="color:var(--muted);margin-top:16px;font-size:15px;line-height:1.65">We connect both sides by creating digital platforms built for performance, then using marketing systems to bring the right people to them.</p>
+        <a href="#cta" class="btn btn-gr" style="margin-top:28px">Book a Free Growth Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section alt">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Sound Familiar?</span>
+      <h2 class="h2">Is Your Online Presence Holding Your Business Back?</h2>
+      <p class="sub c-sub">Many businesses do not have a marketing problem only. They have a system problem.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="prob-ic">🌐</div>
+        <div>
+          <h4>Your website looks good, but does not bring leads.</h4>
+          <p>A beautiful design means nothing if visitors do not take action.</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-ic">💸</div>
+        <div>
+          <h4>Your ads get clicks, but not customers.</h4>
+          <p>Traffic without strategy wastes money.</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-ic">🤝</div>
+        <div>
+          <h4>Your business depends too much on referrals.</h4>
+          <p>You need a predictable way to attract new customers.</p>
+        </div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-ic">⏳</div>
+        <div>
+          <h4>Your digital tools are slow, outdated, or confusing.</h4>
+          <p>Poor user experience can cost you trust, sales, and growth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section center">
+  <div class="container">
+    <span class="eye">The Complete Growth System</span>
+    <h2 class="h2">A Complete Digital Growth Partner</h2>
+    <p class="sub c-sub">We help you create the full system your business needs to grow online — from strategy and design to development, marketing, tracking, and optimization.</p>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <div class="sol-bg-n">1</div>
+        <div class="sol-em">🏗️</div>
+        <h3 class="b">Build a Strong Foundation</h3>
+        <p>We design and develop websites, apps, stores, and software systems that are fast, modern, and easy to use.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-bg-n">2</div>
+        <div class="sol-em">🎯</div>
+        <h3 class="v">Bring the Right Traffic</h3>
+        <p>We create SEO, paid ads, social media, and content strategies that attract people who are more likely to become customers.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-bg-n">3</div>
+        <div class="sol-em">📈</div>
+        <h3 class="g">Improve and Scale</h3>
+        <p>We track performance, analyze results, and keep improving your website and campaigns so your growth does not stop after launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section alt" id="srv">
+  <div class="container">
+    <div class="center">
+      <span class="eye">What We Do</span>
+      <h2 class="h2">Services Designed Around Business Growth</h2>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-col">
+        <div class="srv-hdr dh">
+          <div class="srv-hdr-ic">🖥️</div>
+          <h3>Development Services</h3>
+        </div>
+        <ul class="srv-ul">
+          <li class="srv-li"><h4>Website Development</h4><p>Fast, responsive, conversion-focused websites for modern businesses.</p></li>
+          <li class="srv-li"><h4>Mobile App Development</h4><p>iOS, Android, and cross-platform apps designed for real users.</p></li>
+          <li class="srv-li"><h4>E-commerce Development</h4><p>Online stores built to sell products smoothly and professionally.</p></li>
+          <li class="srv-li"><h4>Custom Software Development</h4><p>Dashboards, portals, CRMs, automation tools, and business systems.</p></li>
+          <li class="srv-li"><h4>UI/UX Design</h4><p>Clean, simple, and user-focused designs that guide people toward action.</p></li>
+        </ul>
+        <div class="srv-ftr"><a href="#" class="btn btn-b">View Development Services</a></div>
+      </div>
+      <div class="srv-col">
+        <div class="srv-hdr mh">
+          <div class="srv-hdr-ic">📣</div>
+          <h3>Marketing Services</h3>
+        </div>
+        <ul class="srv-ul">
+          <li class="srv-li"><h4>SEO Services</h4><p>Improve your visibility on Google and attract long-term organic traffic.</p></li>
+          <li class="srv-li"><h4>Google Ads</h4><p>Reach customers who are actively searching for your products or services.</p></li>
+          <li class="srv-li"><h4>Social Media Marketing</h4><p>Build trust, awareness, and engagement with the right audience.</p></li>
+          <li class="srv-li"><h4>Content Marketing</h4><p>Create content that educates, ranks, and converts.</p></li>
+          <li class="srv-li"><h4>Conversion Optimization</h4><p>Improve your landing pages, CTAs, forms, and sales flow.</p></li>
+        </ul>
+        <div class="srv-ftr"><a href="#" class="btn btn-v">View Marketing Services</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section">
+  <div class="container">
+    <div class="proof-in">
+      <div>
+        <span class="eye">Our Track Record</span>
+        <h2 class="h2">Growth Is Easier When Strategy, Design, Development, and Marketing Work Together</h2>
+        <p class="sub" style="max-width:100%">We focus on business outcomes, not just deliverables. Every project starts with understanding your goals, your customers, and the actions you want people to take.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-n">50+</div><div class="stat-l">Projects Delivered</div></div>
+        <div class="stat-box"><div class="stat-n">30%+</div><div class="stat-l">Average Website Performance Improvement</div></div>
+        <div class="stat-box"><div class="stat-n">2×</div><div class="stat-l">More Qualified Leads for Selected Campaigns</div></div>
+        <div class="stat-box"><div class="stat-n">100%</div><div class="stat-l">Strategy-Led Approach</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section alt" id="cs">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Our Work</span>
+      <h2 class="h2">Real Projects. Real Business Problems. Real Solutions.</h2>
+    </div>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-thumb th1">🖥️</div>
+        <div class="cs-body">
+          <span class="tag t-b">Website Redesign</span>
+          <h3>Website Redesign for a Service Business</h3>
+          <p>The client had an outdated website that was not generating enough inquiries. We redesigned the user journey, improved the website structure, and created clearer calls-to-action.</p>
+          <div class="cs-res r1">✓ More trust, better user experience, and improved lead quality.</div>
+          <a href="#" class="cs-lnk">View Case Study →</a>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-thumb th2">📣</div>
+        <div class="cs-body">
+          <span class="tag t-v">Lead Generation</span>
+          <h3>Marketing Campaign for Lead Generation</h3>
+          <p>The client was spending money on ads but not getting consistent leads. We improved campaign targeting, landing page structure, tracking, and monthly optimization.</p>
+          <div class="cs-res r2">✓ Better campaign performance and more qualified inquiries.</div>
+          <a href="#" class="cs-lnk">View Case Study →</a>
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-thumb th3">⚙️</div>
+        <div class="cs-body">
+          <span class="tag t-g">Custom Software</span>
+          <h3>Custom System for Business Operations</h3>
+          <p>The client needed a better way to manage internal work. We created a custom dashboard to simplify operations and reduce manual tasks.</p>
+          <div class="cs-res r3">✓ Faster workflow, better visibility, and less operational confusion.</div>
+          <a href="#" class="cs-lnk">View Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section center">
+  <div class="container">
+    <span class="eye">How We Work</span>
+    <h2 class="h2">A Clear Process From Idea to Growth</h2>
+    <p class="sub c-sub">A proven six-step framework used across every client engagement.</p>
+    <div class="proc-steps">
+      <div class="ps"><div class="pc pc1">1</div><h4>Discover</h4><p>We understand your business, goals, customers, and current challenges.</p></div>
+      <div class="ps"><div class="pc pc2">2</div><h4>Plan</h4><p>We create a clear strategy before design, development, or marketing begins.</p></div>
+      <div class="ps"><div class="pc pc3">3</div><h4>Build</h4><p>We design and develop your website, app, landing page, or digital system.</p></div>
+      <div class="ps"><div class="pc pc4">4</div><h4>Launch</h4><p>We test, optimize, and launch everything properly.</p></div>
+      <div class="ps"><div class="pc pc5">5</div><h4>Market</h4><p>We bring traffic through SEO, ads, content, and social media.</p></div>
+      <div class="ps"><div class="pc pc6">6</div><h4>Optimize</h4><p>We track results, improve performance, and scale what works.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section alt">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Our Difference</span>
+      <h2 class="h2">Why Businesses Choose Us</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-ic">🧠</div>
+        <div>
+          <h4>We think beyond design.</h4>
+          <p>Your website should not only look professional. It should help your business convert visitors into leads and customers.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">🔗</div>
+        <div>
+          <h4>We connect development with marketing.</h4>
+          <p>Your platform and marketing should work together, not separately.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">💬</div>
+        <div>
+          <h4>We focus on clear communication.</h4>
+          <p>You always know what we are doing, why we are doing it, and how it supports your goals.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-ic">📈</div>
+        <div>
+          <h4>We build for long-term growth.</h4>
+          <p>Our goal is not just to launch a project. Our goal is to help you build a system that keeps improving.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="center">
+      <span class="eye">Client Feedback</span>
+      <h2 class="h2">What Clients Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="tc">
+        <div class="qm">"</div>
+        <blockquote>Working with this team helped us understand what our website was missing. They did not just design pages — they helped us create a better customer journey.</blockquote>
+        <div class="ta">
+          <div class="av">CL</div>
+          <div><div class="an">Client Name</div><div class="ar">Company / Industry</div></div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="qm">"</div>
+        <blockquote>We needed both development and marketing support. Their strategy helped us improve our online presence and generate better inquiries.</blockquote>
+        <div class="ta">
+          <div class="av">CL</div>
+          <div><div class="an">Client Name</div><div class="ar">Company / Industry</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-sec" id="cta">
+  <div class="container">
+    <span class="eye">Get Started</span>
+    <h2 class="h2">Not Sure Whether You Need Development<br>or Marketing First?</h2>
+    <p class="sub c-sub" style="margin-top:16px">That is exactly why we start with a consultation. We will review your current online presence, understand your goals, and help you choose the best starting point.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-gr lg">Book a Free Growth Consultation</a>
+      <a href="#" class="btn btn-ow lg">Send Us Your Project Details</a>
+    </div>
+    <p class="cta-note">No commitment. No sales pitch. Just straight strategy.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="logo">Trivon<span>Studios</span></div>
+        <p>We build digital platforms and marketing systems that help businesses grow online.</p>
+        <a href="#cta" class="btn btn-b">Book a Free Consultation</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Process</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Development</h4>
+        <ul>
+          <li><a href="#">Website Development</a></li>
+          <li><a href="#">Mobile App Development</a></li>
+          <li><a href="#">E-commerce Development</a></li>
+          <li><a href="#">Custom Software</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Marketing</h4>
+        <ul>
+          <li><a href="#">SEO Services</a></li>
+          <li><a href="#">Google Ads</a></li>
+          <li><a href="#">Social Media Marketing</a></li>
+          <li><a href="#">Content Marketing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 Trivon Studios. All rights reserved.</p>
+      <p>We build the system. Then we help you grow it.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
